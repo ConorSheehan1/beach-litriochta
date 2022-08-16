@@ -93,7 +93,7 @@ store.startGame({
       </el-menu-item>
       <el-menu-item index="3">
         <el-select-v2
-          style="margin-top: 10px; width: 6em;"
+          style="margin-top: 10px; width: 6em"
           v-model="$i18n.locale"
           :options="['ga', 'en'].map((v) => ({ value: v, label: v }))"
           placeholder="Please select" />

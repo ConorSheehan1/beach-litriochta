@@ -45,3 +45,8 @@ yarn version --new-version <version>
 # bump minor version
 yarn version --minor
 ```
+
+## Favicon
+
+Favicons created with http://faviconer.com
+http://faviconer.com/user/17914
