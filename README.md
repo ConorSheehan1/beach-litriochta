@@ -19,10 +19,18 @@ https://beach-litriochta.netlify.app
 | ------------------------------------------------ | ---------------------------------------------------- |
 | ![light-sc](.github/images/beach-litriochta.png) | ![dark-sc](.github/images/beach-litriochta-dark.png) |
 
+## Alternate versions
+
+_Más maith leat an cluiche, tá leagan Béarla ann freisin._  
+If you like the game, there's an English version too.
+
+https://github.com/ConorSheehan1/spelling-bee
+
 ## Credits
 
 - Inspired by https://www.nytimes.com/puzzles/spelling-bee
 - Using foclach word list https://github.com/LindaKeating/foclach/blob/main/src/IrishWords.txt
+- Using fireworks.scss https://codepen.io/hmaw/pen/qBEMLxV
 
 ## Development
 

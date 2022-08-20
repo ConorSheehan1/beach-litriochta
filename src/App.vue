@@ -79,7 +79,9 @@ store.startGame({
   <el-dialog v-model="showInfo" :title="$t('How to play')">
     <Info />
   </el-dialog>
-  <div class="common-layout">
+  <div class="common-layout fireworks">
+    <div class="before" v-if="showGameWonModal" />
+    <div class="after" v-if="showGameWonModal" />
     <el-header height="2em" id="title-header">
       <h2>
         <strong> Beach Litríochta </strong>
@@ -133,6 +135,7 @@ store.startGame({
 <style lang="scss">
 @import "element-plus/dist/index.css";
 @import "element-plus/theme-chalk/dark/css-vars.css";
+@import "./assets/styles/fireworks.scss";
 @import "./assets/styles/_variables.scss";
 
 * {
