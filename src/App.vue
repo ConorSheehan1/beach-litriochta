@@ -5,6 +5,7 @@ import CorrectGuesses from "./components/CorrectGuesses.vue";
 import Progress from "./components/Progress.vue";
 import YesterdaysAnswers from "./components/YesterdaysAnswers.vue";
 import Info from "./components/Info.vue";
+import GameWon from "./components/GameWon.vue";
 import allAnswers from "../data/allAnswers";
 import { useMainStore } from "./store";
 import { InfoFilled, Calendar, Sunny, Moon } from "@element-plus/icons-vue";
@@ -13,6 +14,7 @@ const store = useMainStore();
 const showYesterdaysAnswers = ref(false);
 const showInfo = ref(false);
 const zindex = ref(0);
+const gameWonModalShown = ref(false); // only show gameWon modal once
 let timer: any;
 
 const darkmode = ref(store.theme === "dark");
@@ -26,6 +28,10 @@ const onToggleDarkMode = () => {
     document.documentElement.classList.remove("dark");
   }
 };
+
+const showGameWonModal = computed(
+  () => store.getProgressPercentage === 100 && gameWonModalShown.value === false
+);
 
 const onOpenCorrectGuesses = () => {
   // without clearing timer, if user toggles correct guesses quickly, it will fade to background after timeout
@@ -61,6 +67,12 @@ store.startGame({
 </script>
 
 <template>
+  <el-dialog
+    v-model="showGameWonModal"
+    @closed="gameWonModalShown = true"
+    :title="`${$t('Congratulations')}!`">
+    <GameWon />
+  </el-dialog>
   <el-dialog v-model="showYesterdaysAnswers" :title="$t('Yesterdays Answers')">
     <YesterdaysAnswers />
   </el-dialog>

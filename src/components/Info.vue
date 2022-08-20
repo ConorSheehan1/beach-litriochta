@@ -73,10 +73,4 @@ const email = "conor.sheehan.dev@gmail.com";
 .info-dialog {
   text-align: left;
 }
-
-html.dark {
-  .github-icon {
-    filter: invert(0.8);
-  }
-}
 </style>
