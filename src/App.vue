@@ -80,8 +80,8 @@ store.startGame({
     <Info />
   </el-dialog>
   <div class="common-layout fireworks">
-    <div class="before" v-if="showGameWonModal" />
-    <div class="after" v-if="showGameWonModal" />
+    <div class="beforeFireworks" v-if="showGameWonModal" />
+    <div class="afterFireworks" v-if="showGameWonModal" />
     <el-header height="2em" id="title-header">
       <h2>
         <strong> Beach Litríochta </strong>

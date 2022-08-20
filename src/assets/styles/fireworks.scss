@@ -1,4 +1,7 @@
 // https://codepen.io/hmaw/pen/qBEMLxV
+// sass fixes https://sass-lang.com/documentation/breaking-changes/color-units
+// https://sass-lang.com/documentation/breaking-changes/slash-div
+@use "sass:math";
 
 $particles: 50;
 $width: 500;
@@ -9,13 +12,13 @@ $box-shadow: ();
 $box-shadow2: ();
 @for $i from 0 through $particles {
   $box-shadow: $box-shadow,
-    random($width)-$width /
-      2 +
+    random($width) -
+      math.div($width, 2) +
       px
-      random($height)-$height /
-      1.2 +
+      random($height) -
+      math.div($height, 1.2) +
       px
-      hsl(random(360), 100, 50);
+      hsl(random(360deg), 100%, 50%);
   $box-shadow2: $box-shadow2, 0 0 #fff;
 }
 @mixin keyframes($animationName) {
@@ -72,8 +75,8 @@ $box-shadow2: ();
   -ms-transform: $settings;
 }
 
-.fireworks > .before,
-.fireworks > .after {
+.fireworks > .beforeFireworks,
+.fireworks > .afterFireworks {
   position: absolute;
   width: 5px;
   height: 5px;
@@ -88,7 +91,7 @@ $box-shadow2: ();
   );
 }
 
-.fireworks > .after {
+.fireworks > .afterFireworks {
   @include animation-delay((1.25s, 1.25s, 1.25s));
   @include animation-duration((1.25s, 1.25s, 6.25s));
 }
