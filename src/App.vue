@@ -6,7 +6,7 @@ import Progress from "./components/Progress.vue";
 import YesterdaysAnswers from "./components/YesterdaysAnswers.vue";
 import Info from "./components/Info.vue";
 import GameWon from "./components/GameWon.vue";
-import allAnswers from "../data/allAnswers";
+import allAnswers from "../data/allAnswers.json";
 import { useMainStore } from "./store";
 import { InfoFilled, Calendar, Sunny, Moon } from "@element-plus/icons-vue";
 

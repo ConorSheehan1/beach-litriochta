@@ -1,15 +1,22 @@
 const { readFileSync, writeFileSync } = require("fs");
+const cliProgress = require('cli-progress');
+const { shuffle } = require('../src/utils');
 
 // config
 const minNumAnswers = 20;
+const writeSupplementaryFiles = true;
+// 10 years worth of puzzles per file. avoid slow loading page and need for git-lfs with all puzzles in one file.
+// need to update to use allAnswers2 10 years from now. see you in the future o_0
+const numPuzzlesPerFile = 3650;
 
-const data = readFileSync("./data/IrishWords.txt");
-// each word is on a new line, first 6 lines are comments
+const data = readFileSync("./data/AllWords.txt");
+// each word is on a new line, first 2 lines are a comments, last line is empty
 const words = data
   .toString()
   .split("\n")
-  .slice(6, -1)
+  .slice(2, -1)
   .map((s: string) => s.toLowerCase());
+
 const validWords = words.filter((word: string) => {
   if (word.length < 4) return false;
   const uniqueLetters = new Set(word);
@@ -19,8 +26,10 @@ const validWords = words.filter((word: string) => {
 
 const pangrams = validWords.filter((word: string) => new Set(word).size == 7);
 
-writeFileSync("./data/answers.txt", validWords.join("\n"));
-writeFileSync("./data/pangrams.txt", pangrams.join("\n"));
+if (writeSupplementaryFiles) {
+  writeFileSync("./data/answers.txt", validWords.join("\n"));
+  writeFileSync("./data/pangrams.txt", pangrams.join("\n"));
+}
 
 const uniqueLetterCombinations = pangrams.reduce((acc: Set<string>, pangram: string) => {
   const uniqueLetters = new Set(pangram.split("").sort());
@@ -29,15 +38,19 @@ const uniqueLetterCombinations = pangrams.reduce((acc: Set<string>, pangram: str
 }, new Set());
 const numPangrams = pangrams.length;
 const numUniqueLetterCombinations = uniqueLetterCombinations.size;
+const uniqueLetterCombinationsShuffled = shuffle(Array.from(uniqueLetterCombinations))
 
-// {numPangrams: 1047, numUniqueLetterCombinations: 931}
-// console.log({ numPangrams, numUniqueLetterCombinations })
+let allAnswers = [];
 
-const allAnswers = [];
+const createPuzzleBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+createPuzzleBar.start(numUniqueLetterCombinations * 7, 0);
+let numProcessed = 0;
 
 for (let offset = 0; offset < 7; offset++) {
   for (let i = 0; i < numUniqueLetterCombinations; i++) {
-    const availableLetters = Array.from(uniqueLetterCombinations)[i] as string;
+    numProcessed += 1;
+    createPuzzleBar.update(numProcessed);
+    const availableLetters = uniqueLetterCombinationsShuffled[i] as string;
     // for each unique letter combination, choose middle letter in sequence
     // e.g. [0,1,2,3,4,5,6,0,1,2,3...], [1,2,3,4,5,6,0,1,2,3...]
     const middleLetter = availableLetters[(i + offset) % 7];
@@ -50,13 +63,17 @@ for (let offset = 0; offset < 7; offset++) {
     } // else {
     //   console.log({ availableLetters, middleLetter, len: answers.length })
     // }
+    if (numProcessed % numPuzzlesPerFile === 0) {
+      let fileNum = numProcessed / numPuzzlesPerFile;
+      writeFileSync(
+        `./data/allAnswers${fileNum === 1 ? '' : fileNum}.json`,
+        `${JSON.stringify(allAnswers, null, 2)}`
+      );
+      allAnswers = [];
+    }
   }
 }
 
-// TODO: add custom word list? try wordle.global word list?
-// https://github.com/Hugo0/wordle
-// IrishWords is missing basic words. e.g. reoite -> frozen, beansí
-writeFileSync(
-  "./data/allAnswers.ts",
-  `export default ${JSON.stringify(allAnswers, null, 2)}`
-);
+createPuzzleBar.stop();
+// 52493 puzzle combinations
+// 52493 / 365 = 143 years worth of games
