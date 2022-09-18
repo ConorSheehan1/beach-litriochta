@@ -47,19 +47,7 @@ const onCloseCorrectGuesses = () => {
 
 onMounted(onToggleDarkMode);
 
-// current date yyyy-mm-dd
-const dateString = new Date().toISOString().split("T")[0] as string;
-// current date as int yyyymmdd
-const dateInt = parseInt(dateString.replaceAll("-", ""), 10);
-// pick next puzzle input, % len puzzles to restart if out of index
-const todaysAnswerObj = allAnswers[dateInt % allAnswers.length];
-const yesterdaysAnswerObj = allAnswers[(dateInt - 1) % allAnswers.length];
-// reset old answers if necessary, make answers available in all components
-store.startGame({
-  todaysAnswerObj,
-  yesterdaysAnswerObj,
-  gameDate: dateString,
-});
+store.startGame({ allAnswers });
 // TODO: extra not in spellingbee: track scores across days
 // TODO: add shake animation on incorrect submission?
 // https://www.reddit.com/r/webdev/comments/su6y4r/what_animations_are_used_in_wordle/
@@ -85,7 +73,7 @@ store.startGame({
     <el-header height="2em" id="title-header">
       <h2>
         <strong> Beach Litríochta </strong>
-        <span> {{ dateString }} </span>
+        <span> {{ store.getGameDateString }} </span>
       </h2>
     </el-header>
     <el-menu mode="horizontal" :ellipsis="false">
