@@ -31,6 +31,7 @@ https://github.com/ConorSheehan1/spelling-bee
 - Inspired by https://www.nytimes.com/puzzles/spelling-bee
 - Using foclach word list https://github.com/LindaKeating/foclach/blob/main/src/IrishWords.txt
 - Using fireworks.scss https://codepen.io/hmaw/pen/qBEMLxV
+- Using Element Plus UI https://github.com/element-plus/element-plus
 
 ## Development
 
