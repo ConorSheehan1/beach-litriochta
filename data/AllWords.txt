@@ -1,27 +1,3 @@
-"ard
-"ard
-"ard
-"cré
-"dea
-"dé
-"dí
-"faoi
-"go
-"i
-"in
-"mí
-"mí
-"mí
-"mí
-"mí
-"mór
-"nua
-"nua
-"nua
-"os
-"sean
-"thar
-"uile
 ab
 abair
 abairt
@@ -246,7 +222,6 @@ amuigh
 amáireach
 amárach
 amú
-an
 an
 anachain
 anailís
@@ -1944,7 +1919,6 @@ dath
 dathaigh
 dathúil
 de
-dea
 dea
 deabhadh
 deabhóid
@@ -4209,7 +4183,6 @@ nead
 neadaigh
 neamart
 neamh
-neamh
 neamhaird
 neamhchiontach
 neamhchoitianta
@@ -4848,7 +4821,6 @@ ríon
 rírá
 rís
 ró
-ró
 róba
 ród
 rógaire
@@ -5204,7 +5176,6 @@ simpligh
 simplí
 simplíocht
 siméadracht
-sin
 sin
 sinc
 sine

@@ -3,6 +3,17 @@
 // modified manually to strip additional tabs and only include words
 
 import { readFileSync, writeFileSync }  from "fs";
+import { ssrContextKey } from "vue";
+
+const tabFileToArray = (filePath: string): Array<any> => {
+  const data = readFileSync(filePath);
+  return data
+    .toString()
+    .split("\n")
+    .splice(8)
+    .map((s: string) => s.split('\t')[1].toLowerCase())
+    .filter((s: string) => !s.includes('-') && !s.includes(' '));
+}
 
 const fileToLowerCaseArray = (filePath: string): Array<any> => {
   const data = readFileSync(filePath);
@@ -12,7 +23,7 @@ const fileToLowerCaseArray = (filePath: string): Array<any> => {
     .map((s: string) => s.toLowerCase());
 }
 
-const originalWords = fileToLowerCaseArray("./data/AllWords/IrishWords.txt");
+const originalWords = tabFileToArray("./data/AllWords/IrishWords.txt");
 const removedWordsSet = new Set(fileToLowerCaseArray("./data/AllWords/wordsRemoved.txt"));
 const addedWords = fileToLowerCaseArray("./data/AllWords/wordsAdded.txt");
 

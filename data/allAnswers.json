@@ -3824,7 +3824,6 @@
       "meanma",
       "neach",
       "neamh",
-      "neamh",
       "neimhe",
       "nimhneach"
     ],
@@ -14408,32 +14407,6 @@
   },
   {
     "answers": [
-      "aigne",
-      "ainm",
-      "ainmnigh",
-      "anam",
-      "annamh",
-      "eagna",
-      "eang",
-      "gaineamh",
-      "gamhain",
-      "gann",
-      "gean",
-      "iaigh",
-      "iamh",
-      "mana",
-      "meaig",
-      "meanma",
-      "mian",
-      "neamh",
-      "neamh",
-      "neamhnigh"
-    ],
-    "middleLetter": "a",
-    "availableLetters": "aeghimn"
-  },
-  {
-    "answers": [
       "achan",
       "achar",
       "achrann",
@@ -21310,7 +21283,6 @@
       "nach",
       "neach",
       "neamh",
-      "neamh",
       "neimhe",
       "nimh",
       "nimhneach"
@@ -21793,7 +21765,6 @@
       "meánach",
       "nach",
       "neach",
-      "neamh",
       "neamh"
     ],
     "middleLetter": "h",
@@ -28719,7 +28690,6 @@
       "mian",
       "nath",
       "neamh",
-      "neamh",
       "neimhe",
       "nimh",
       "taitin",
@@ -29269,7 +29239,6 @@
       "meas",
       "measc",
       "neach",
-      "neamh",
       "neamh",
       "sceach",
       "scean",
@@ -46161,7 +46130,6 @@
       "nach",
       "neach",
       "neamh",
-      "neamh",
       "samhna",
       "samhnas",
       "sceach",
@@ -55989,7 +55957,6 @@
       "mianach",
       "minic",
       "neamh",
-      "neamh",
       "neimhe",
       "nimh",
       "nimhneach"
@@ -56439,7 +56406,6 @@
       "meánach",
       "nach",
       "neach",
-      "neamh",
       "neamh"
     ],
     "middleLetter": "n",
@@ -63143,7 +63109,6 @@
       "mian",
       "nath",
       "neamh",
-      "neamh",
       "taitin",
       "taitneamh",
       "tathant",
@@ -63577,7 +63542,6 @@
       "meanma",
       "meas",
       "measc",
-      "neamh",
       "neamh",
       "samhna",
       "samhnas",
