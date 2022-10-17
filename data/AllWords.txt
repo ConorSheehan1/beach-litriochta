@@ -2475,6 +2475,7 @@ fanúint
 faobhar
 faoi
 faoileán
+faoin
 faoiseamh
 faoistin
 faomh

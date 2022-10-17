@@ -15,6 +15,8 @@ yarn build
 _Warning_: this operation may result in the same puzzle repeating too often.
 This operation is not idempotent. Re-creating allAnswers.json will change the order of the puzzles, which could result in the same puzzle twice in a row on deploy in the worst case. As of the latest version (v2.2.0) I've made `createRandomGenerator` that produces pseudo-random numbers but can be given a seed to produce the same sequence of random numbers. This should make the operation idempotent.
 
+**Both steps below are bundled into `yarn generatePuzzleInputs`.**
+
 1. Create `AllWords.txt`
    This is only required if there are changes to `wordsAdded.txt` or `wordsRemoved.txt`.
 

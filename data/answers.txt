@@ -1796,6 +1796,7 @@ fann
 fanúint
 faobhar
 faoi
+faoin
 faoistin
 faomh
 fara

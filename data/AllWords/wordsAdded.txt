@@ -2,6 +2,7 @@ aoine
 crinn
 canadh
 droch
+faoin
 gaelach
 ionsú
 leat
