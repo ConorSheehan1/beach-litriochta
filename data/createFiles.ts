@@ -1,6 +1,11 @@
-const { readFileSync, writeFileSync } = require("fs");
-const cliProgress = require('cli-progress');
-const { shuffle } = require('../src/utils');
+// This script takes the contents of AllWords.txt
+// 1. Filters out any invalid words (len < 4, unique letters > 7) and writes them to answers.txt
+// 2. Finds pangrams and writes them to pangrams.txt
+// 3. Creates unique puzzle starting points and writes them to various allAnswers$N.json
+
+import { readFileSync, writeFileSync }  from "fs";
+import cliProgress from "cli-progress";
+import { shuffle } from "../src/utils";
 
 // config
 const minNumAnswers = 20;
@@ -10,11 +15,9 @@ const writeSupplementaryFiles = true;
 const numPuzzlesPerFile = 3650;
 
 const data = readFileSync("./data/AllWords.txt");
-// each word is on a new line, first 2 lines are a comments, last line is empty
 const words = data
   .toString()
   .split("\n")
-  .slice(2, -1)
   .map((s: string) => s.toLowerCase());
 
 const validWords = words.filter((word: string) => {
@@ -75,5 +78,3 @@ for (let offset = 0; offset < 7; offset++) {
 }
 
 createPuzzleBar.stop();
-// 52493 puzzle combinations
-// 52493 / 365 = 143 years worth of games
