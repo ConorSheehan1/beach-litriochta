@@ -4,7 +4,9 @@ canadh
 droch
 gaelach
 ionsú
-libh
 leat
+libh
+liom
+liomsa
 reoite
 rinne

@@ -3578,6 +3578,8 @@ linn
 liobrálach
 liobrálachas
 liodán
+liom
+liomsa
 lionn
 lionsa
 liopa
