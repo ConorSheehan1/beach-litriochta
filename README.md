@@ -12,7 +12,7 @@ New challenge every day. Create words using letters from the hive.
 
 ## Links
 
-https://beacha.ie  
+~~https://beacha.ie~~  
 https://beach-litriochta.netlify.app
 
 |                                                  |                                                      |
