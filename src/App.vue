@@ -33,6 +33,12 @@ const showGameWonModal = computed(
   () => store.getProgressPercentage === 100 && gameWonModalShown.value === false
 );
 
+// TODO: remove after beacha.ie eol
+let showMigrationModal = ref(false);
+const checkUrl = () => {
+  showMigrationModal.value = window.location.href.includes('beacha.ie');
+}
+
 const onOpenCorrectGuesses = () => {
   // without clearing timer, if user toggles correct guesses quickly, it will fade to background after timeout
   clearTimeout(timer);
@@ -46,6 +52,7 @@ const onCloseCorrectGuesses = () => {
 };
 
 onMounted(onToggleDarkMode);
+onMounted(checkUrl);
 
 store.startGame({ allAnswers });
 // TODO: extra not in spellingbee: track scores across days
@@ -55,6 +62,20 @@ store.startGame({ allAnswers });
 </script>
 
 <template>
+  <!-- todo: remove after beacha.ie eol -->
+  <el-dialog
+    v-model="showMigrationModal"
+    :title="`url migration / ag bogadh url`"
+  >
+    <div>
+      <p>
+        Ní oibreoidh an url <a href="https://beacha.ie">https://beacha.ie</a> ón tseachtain seo chugainn. Bain úsáid as <a href="https://beach-litriochta.netlify.app">https://beach-litriochta.netlify.app</a> ina ionad le do thoil. Gabh mo leithscéal as ucht an bhfógra déanach!
+      </p>
+      <p>
+        The <a href="https://beacha.ie">https://beacha.ie</a> url will not work from next week. Please use <a href="https://beach-litriochta.netlify.app">https://beach-litriochta.netlify.app</a> instead. Sorry for the short notice!
+      </p>
+    </div>
+  </el-dialog>
   <el-dialog
     v-model="showGameWonModal"
     @closed="gameWonModalShown = true"
