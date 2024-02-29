@@ -36,7 +36,7 @@ const showGameWonModal = computed(
 let showMigrationModal = ref(false);
 const checkUrl = () => {
   showMigrationModal.value = window.location.href.includes(
-    "beach-litriochta.pages.dev"
+    "beach-litriochta.netlify.app"
   );
 };
 
