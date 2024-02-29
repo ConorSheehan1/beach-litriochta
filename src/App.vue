@@ -33,10 +33,11 @@ const showGameWonModal = computed(
   () => store.getProgressPercentage === 100 && gameWonModalShown.value === false
 );
 
-// TODO: remove after beacha.ie eol
 let showMigrationModal = ref(false);
 const checkUrl = () => {
-  showMigrationModal.value = window.location.href.includes("beacha.ie");
+  showMigrationModal.value = window.location.href.includes(
+    "beach-litriochta.netlify.app"
+  );
 };
 
 const onOpenCorrectGuesses = () => {
@@ -62,22 +63,27 @@ store.startGame({ allAnswers });
 </script>
 
 <template>
-  <!-- todo: remove after beacha.ie eol -->
   <el-dialog v-model="showMigrationModal" title="url migration / ag bogadh url">
     <div>
       <p>
-        Ní oibreoidh an url <a href="https://beacha.ie">https://beacha.ie</a> ón
-        tseachtain seo chugainn. Bain úsáid as
+        Ní oibreoidh an url
         <a href="https://beach-litriochta.netlify.app"
           >https://beach-litriochta.netlify.app</a
+        >
+        ón tseachtain seo chugainn. Bain úsáid as
+        <a href="https://beach-litriochta.pages.dev"
+          >https://beach-litriochta.pages.dev</a
         >
         ina ionad le do thoil. Gabh mo leithscéal as ucht an bhfógra déanach!
       </p>
       <p>
-        The <a href="https://beacha.ie">https://beacha.ie</a> url will not work
-        from next week. Please use
+        The
         <a href="https://beach-litriochta.netlify.app"
           >https://beach-litriochta.netlify.app</a
+        >
+        url will not work from next week. Please use
+        <a href="https://beach-litriochta.pages.dev"
+          >https://beach-litriochta.pages.dev</a
         >
         instead. Sorry for the short notice!
       </p>
